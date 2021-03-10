@@ -15,11 +15,11 @@
           </div>
         </div>
       </div>
+      <div class="container menu">
+        <h2>Our menu</h2>
+      </div>
+      <Card />
     </main>
-    <div class="container menu">
-      <h2>Our menu</h2>
-    </div>
-    <Card />
   </section>
 </template>
 
@@ -65,6 +65,7 @@ div img {
   justify-content: center;
   margin-top: 2rem;
   margin-bottom: 2rem;
+  margin-top: 150px;
   td {
     border-bottom: 4px solid $primary-color;
     width: 30px;

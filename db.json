@@ -25,6 +25,15 @@
       "is_ready": true,
       "gambar": "./src/assets/images/cilok.jpg"
 
+    },
+    {
+      "id": 4,
+      "kode": "K-04",
+      "nama": "Getuk",
+      "harga": 16000,
+      "is_ready": true,
+      "gambar": "./src/assets/images/getuk.jpg"
+
     }
   ],
   "products": [

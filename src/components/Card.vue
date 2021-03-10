@@ -1,33 +1,12 @@
 <template>
   <div class="container ">
     <div class="row">
-      <div class="card shadow bg-white rounded" style="width: 18rem">
-        <img class="card-img-top" src="../assets/bakso-solo.jpg" alt="Card image cap" />
+      <div class="card shadow bg-white rounded mb-5" v-for="post in posts" :key="post.id" style="width: 18rem">
+        <img class="card-img-top" v-bind:src="post.url" alt="Card image cap" />
         <div class="card-body">
-          <h5 class="card-title">{{title}}</h5>
+          <h5 class="card-title">{{post.title}}</h5>
           <p class="card-text">
-            IDR 16.000
-          </p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
-      <div class="card" style="width: 18rem">
-        <img class="card-img-top" src="" alt="Card image cap" />
-        <div class="card-body">
-          <h5 class="card-title">Bakso Solo</h5>
-          <p class="card-text">
-            IDR 16.000
-          </p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
-      <div class="card" style="width: 18rem">
-        <img class="card-img-top" src="" alt="Card image cap" />
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
+            <!-- {{post.harga}} -->
           </p>
           <a href="#" class="btn btn-primary">Go somewhere</a>
         </div>
@@ -37,13 +16,15 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapState} from "vuex";
 export default {
   name: "Card",
 
   computed: {
-    ...mapGetters({title: "getTitle"})
-    
+    ...mapState('posts', ["posts"])
+  },
+  created() {
+    this.$store.dispatch('posts/loadPosts')
   }
 };
 </script>
@@ -55,5 +36,14 @@ export default {
   .container {
     margin-bottom: 100px  ;
   }
+
+  .card {
+    width: 200px;
+    height: 300px;
+    img {
+      width: 100%;
+      height: 50%;
+    }
+  } 
   
 </style>
